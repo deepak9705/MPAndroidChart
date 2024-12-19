@@ -203,16 +203,13 @@ public class BarLineChartTouchListener extends ChartTouchListener<BarLineChartBa
                                 mTouchMode = DRAG;
                             }
 
-                        } else {
-
-                            if (mChart.isHighlightPerDragEnabled()) {
-                                mLastGesture = ChartGesture.DRAG;
-
-                                if (mChart.isHighlightPerDragEnabled())
-                                    performHighlightDrag(event);
-                            }
                         }
+                    }
+                    if (mChart.isHighlightPerDragEnabled() && mChart.isDragEnabled()==false) {
+                        mLastGesture = ChartGesture.DRAG;
 
+                        if (mChart.isHighlightPerDragEnabled())
+                            performHighlightDrag(event);
                     }
 
                 }
